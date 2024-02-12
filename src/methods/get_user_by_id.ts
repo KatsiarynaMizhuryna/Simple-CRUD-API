@@ -17,9 +17,7 @@ export const getUserById = async (
       res.end(JSON.stringify({ error: "Invalid userId format" }));
       return;
     }
-
     const user = users.find((u) => u.id === userId);
-
     if (!user) {
       res.writeHead(statusCode.Not_Found, {
         "Content-Type": "application/json",
@@ -27,7 +25,6 @@ export const getUserById = async (
       res.end(JSON.stringify({ error: "User not found" }));
       return;
     }
-
     res.writeHead(statusCode.Ok, { "Content-Type": "application/json" });
     res.end(JSON.stringify(user));
   } catch (error) {
