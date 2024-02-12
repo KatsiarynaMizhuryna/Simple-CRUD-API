@@ -5,9 +5,9 @@ import { statusCode } from "src/utils/statuscode";
 export const getUserById = async (
   req: http.IncomingMessage,
   res: http.ServerResponse,
-  users: User[],
-  userId: any
+  users: User[]
 ): Promise<void> => {
+  const userId: any = req.url!.split("/").pop();
   if (!userId.match(/[a-f\d]{8}(-[a-f\d]{4}){3}-[a-f\d]{12}/i)) {
     res.writeHead(statusCode.Bad_Request, {
       "Content-Type": "application/json",
