@@ -71,13 +71,14 @@ DELETE http://localhost:3500/api/users/{userId}
 Run tests for the API:<br>
 **npm test**
 
-Test Scenarios<br>
-Get all records with a GET api/users request (expect an empty array).<br>
-Create a new object by a POST api/users request (expect a response containing the newly created record).<br>
-With a GET api/user/{userId} request, try to get the created record by its id (expect the created record).<br>
-Try to update the created record with a PUT api/users/{userId} request (expect a response containing an updated object with the same id).<br>
-With a DELETE api/users/{userId} request, delete the created object by id (confirmation of successful deletion is expected).<br>
-With a GET api/users/{userId} request, try to get a deleted object by id (expected answer is that there is no such object).<br>
+Test Scenarios
+
+1. Get all records with a GET api/users request (expect an empty array).
+2. Create a new object by a POST api/users request (expect a response containing the newly created record).
+3. With a GET api/user/{userId} request, try to get the created record by its id (expect the created record).
+4. Try to update the created record with a PUT api/users/{userId} request (expect a response containing an updated object with the same id).
+5. With a DELETE api/users/{userId} request, delete the created object by id (confirmation of successful deletion is expected).
+6. With a GET api/users/{userId} request, try to get a deleted object by id (expected answer is that there is no such object).
 
 ## Error Handling
 
