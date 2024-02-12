@@ -6,6 +6,8 @@ import { getUserById } from "./methods/get_user_by_id";
 import { deleteUserById } from "./methods/delete_user";
 import { updateUserById } from "./methods/update_existing_user";
 import { cannotFindError } from "./utils/cannot_find_resource";
+import dotenv from "dotenv";
+dotenv.config();
 
 const users: User[] = [];
 
