@@ -1,34 +1,19 @@
-import { User, createUser } from "./models/user";
+import { User } from "./models/user";
 import http from "http";
 import { getAllUsers } from "./methods/get_all_persons";
+import { createNewUser } from "./methods/create_new_user";
+import { getUserById } from "./methods/get_user_by_id";
 
 const users: User[] = [];
 
 const server = http.createServer((req, res) => {
   if (req.url === "/api/users" && req.method === "GET") {
-    // res.writeHead(200, { "Content-Type": "application/json" });
-    // res.end(JSON.stringify(users));
     getAllUsers(res, users);
   } else if (req.url === "/api/users" && req.method === "POST") {
-    let data = "";
-    req.on("data", (chunk) => {
-      data += chunk;
-    });
-    req.on("end", () => {
-      const { username, age, hobbies } = JSON.parse(data);
-
-      if (!username || !age) {
-        res.writeHead(400, { "Content-Type": "application/json" });
-        res.end(
-          JSON.stringify({ error: "Username and age are required fields" })
-        );
-      } else {
-        const newUser = createUser(username, age, hobbies || []);
-        users.push(newUser);
-        res.writeHead(201, { "Content-Type": "application/json" });
-        res.end(JSON.stringify(newUser));
-      }
-    });
+    createNewUser(res, req, users);
+  } else if (req.url!.startsWith("/api/users/") && req.method === "GET") {
+    const userId: any = req.url!.split("/").pop();
+    getUserById(req, res, users, userId);
   } else {
     res.writeHead(404, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ error: "Not Found" }));
