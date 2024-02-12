@@ -11,7 +11,7 @@ dotenv.config();
 
 const users: User[] = [];
 
-const server = http.createServer((req, res) => {
+export const server = http.createServer((req, res) => {
   if (req.url === "/api/users" && req.method === "GET") {
     getAllUsers(res, users);
   } else if (req.url!.startsWith("/api/users/") && req.method === "GET") {
