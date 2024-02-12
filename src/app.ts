@@ -5,6 +5,7 @@ import { createNewUser } from "./methods/create_new_user";
 import { getUserById } from "./methods/get_user_by_id";
 import { deleteUserById } from "./methods/delete_user";
 import { updateUserById } from "./methods/update_existing_user";
+import { cannotFindError } from "./utils/cannot_find_resource";
 
 const users: User[] = [];
 
@@ -20,8 +21,7 @@ const server = http.createServer((req, res) => {
   } else if (req.url!.startsWith("/api/users/") && req.method === "DELETE") {
     deleteUserById(req, res, users);
   } else {
-    res.writeHead(404, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({ error: "Not Found" }));
+    cannotFindError(res);
   }
 });
 
