@@ -26,22 +26,23 @@ Run the application in development mode:<br>
 
 **npm run start:dev**<br>
 
-Production Mode<br>
+**Production Mode**<br>
+
 Build and run the application in production mode:<br>
 
 **npm run start:prod**
 
 ## API Endpoints
 
-GET api/users<br>
+**GET api/users**<br>
 Get all users:<br>
 GET http://localhost:3500/api/users
 
-GET api/users/{userId}<br>
+**GET api/users/{userId}**<br>
 Get a specific user by ID:<br>
 GET http://localhost:3500/api/users/{userId}
 
-POST api/users<br>
+**POST api/users**<br>
 Create a new user:<br>
 POST http://localhost:3500/api/users<br>
 Request Body:<br>
@@ -51,7 +52,7 @@ Request Body:<br>
 "hobbies": ["Reading", "Coding"]
 }`
 
-PUT api/users/{userId}<br>
+**PUT api/users/{userId}**<br>
 Update an existing user by ID:<br>
 PUT http://localhost:3500/api/users/{userId}<br>
 Request Body:<br>
@@ -61,7 +62,7 @@ Request Body:<br>
 "hobbies": ["Reading", "Traveling"]
 }`
 
-DELETE api/users/{userId}<br>
+**DELETE api/users/{userId}**<br>
 Delete an existing user by ID:<br>
 DELETE http://localhost:3500/api/users/{userId}
 
